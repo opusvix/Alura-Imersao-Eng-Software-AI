@@ -1,12 +1,12 @@
 # 🧮 Calculadora Básica em Python
 
-Uma aplicação simples de terminal desenvolvida em Python para realizar as quatro operações matemáticas fundamentais. Projeto ideal para quem está iniciando os estudos em lógica de programação.
+Uma aplicação simples de terminal desenvolvida em Python para realizar as operações matemáticas fundamentais e cálculo de porcentagem. Projeto ideal para quem está iniciando os estudos em lógica de programação.
 
 ---
 
 ## 📖 Descrição
 
-Este projeto foi criado com fins pedagógicos para praticar os conceitos fundamentais de Python e atender ao Desafio-d0-dia 1 da Imersão Engenharia de Software: Dev na Era da IA da @Alura. 
+Este projeto foi criado com fins pedagógicos para praticar os conceitos fundamentais de Python e atender aos Desafios 1 e 2 da Imersão Engenharia de Software: Dev na Era da IA da @Alura. 
 A aplicação roda diretamente na linha de comando (terminal), interagindo com o usuário através de menus numéricos para coletar entradas, realizar o cálculo desejado e exibir o resultado formatado na tela.
 
 ---
@@ -15,7 +15,7 @@ A aplicação roda diretamente na linha de comando (terminal), interagindo com o
 
 A calculadora aplica na prática conceitos fundamentais da programação:
 
-- **Modularização com Funções (`def`):** Separação de responsabilidades criando uma função exclusiva para cada operação aritmética.
+- **Modularização com Funções (`def`):** Separação de responsabilidades criando uma função exclusiva para cada operação aritmética (adição, subtração, multiplicação, divisão e porcentagem).
 - **Entrada e Conversão de Dados (`input` / `float`):** Coleta de parâmetros via teclado e conversão de strings para tipos numéricos com ponto flutuante.
 - **Estruturas Condicionais (`if` / `elif` / `else`):** Controle de fluxo para validação das escolhas do menu e tratamento de regras de negócio (como impedir a divisão por zero).
 - **Interpolação de Strings (f-strings):** Apresentação clara e elegante dos dados de saída no terminal.
@@ -44,6 +44,10 @@ def divisao(a, b):
         return "Erro: não é possível dividir por zero!"
     return a / b
 
+def porcentagem(a, b):
+    # Calcula a porcentagem de 'a' sobre 'b' (a% de b)
+    return (a * b) / 100
+
 
 # --- 2. MENU E ENTRADA DE DADOS ---
 
@@ -53,14 +57,15 @@ print("1 - Adição (+)")
 print("2 - Subtração (-)")
 print("3 - Multiplicação (*)")
 print("4 - Divisão (/)")
+print("5 - Porcentagem (%)")
 
 # O usuário digita a opção desejada
-opcao = input("Digite o número da operação (1/2/3/4): ")
+opcao = input("Digite o número da operação (1/2/3/4/5): ")
 
 # --- 3. PROCESSAMENTO E LÓGICA CONDICIONAL ---
 
 # Verificamos se a opção digitada é válida antes de pedir os números
-if opcao in ['1', '2', '3', '4']:
+if opcao in ['1', '2', '3', '4', '5']:
     # Recebemos os números e convertemos para float (números com casas decimais)
     num1 = float(input("Digite o primeiro número: "))
     num2 = float(input("Digite o segundo número: "))
@@ -82,9 +87,13 @@ if opcao in ['1', '2', '3', '4']:
         resultado = divisao(num1, num2)
         print(f"\nResultado: {num1} / {num2} = {resultado}")
 
+    elif opcao == '5':
+        resultado = porcentagem(num1, num2)
+        print(f"\nResultado: {num1}% de {num2} = {resultado}")
+
 else:
-    # Caso o usuário digite algo diferente de 1, 2, 3 ou 4
-    print("\nOpção inválida! Por favor, escolha um número de 1 a 4.")
+    # Caso o usuário digite algo diferente de 1 a 5
+    print("\nOpção inválida! Por favor, escolha um número de 1 a 5.")
 ```
 
 ---
@@ -93,7 +102,7 @@ else:
 
 #### 1. Quais são os principais componentes do código gerado?
 
-* **Funções (`def`)**: Pequenos blocos de código reaproveitáveis criados com a palavra `def`. Em vez de misturar a matemática no meio do programa, criamos uma função para cada operação (`adicao`, `subtracao`, etc.). Elas recebem dois valores de entrada (parâmetros `a` e `b`) e devolvem o resultado usando a palavra `return`.
+* **Funções (`def`)**: Pequenos blocos de código reaproveitáveis criados com a palavra `def`. Em vez de misturar a matemática no meio do programa, criamos uma função para cada operação (`adicao`, `subtracao`, `multiplicacao`, `divisao`, `porcentagem`). Elas recebem dois valores de entrada (parâmetros `a` e `b`) e devolvem o resultado usando a palavra `return`.
 * **Variáveis**: Espaços na memória do computador usados para guardar dados temporariamente. No código, usamos variáveis como `opcao`, `num1`, `num2` e `resultado`.
 * **Entrada (`input()`)**: Função nativa do Python que pausa a execução e espera o usuário digitar algo pelo teclado.
 * **Conversão de Tipos (`float()`):** Por padrão, tudo o que vem do `input()` é texto (*string*). O `float()` converte esse texto em um número real (com decimais), permitindo fazer contas matemáticas.
@@ -105,13 +114,14 @@ else:
 #### 2. Como a aplicação recebe os números e identifica a operação escolhida?
 
 1. **Identificando a operação:** 
-   O programa primeiro usa `opcao = input(...)` para capturar a escolha do usuário como texto (`'1'`, `'2'`, `'3'` ou `'4'`). 
+   O programa primeiro usa `opcao = input(...)` para capturar a escolha do usuário como texto (`'1'`, `'2'`, `'3'`, `'4'` ou `'5'`). 
 2. **Validando a escolha:** 
-   A linha `if opcao in ['1', '2', '3', '4']:` checa se o que foi digitado pertence à lista de opções aceitas. Se o usuário digitar "abc" ou "9", o programa pula direto para o `else` final avisando que a opção é inválida.
+   A linha `if opcao in ['1', '2', '3', '4', '5']:` checa se o que foi digitado pertence à lista de opções aceitas. Se o usuário digitar "abc" ou "9", o programa pula direto para o `else` final avisando que a opção é inválida.
 3. **Recebendo os números:** 
    Se a opção for válida, o programa solicita os dois números com `input()` e imediatamente os envolve na função `float()`, transformando a entrada em número calculável:
    ```python
    num1 = float(input("Digite o primeiro número: "))
+   num2 = float(input("Digite o segundo número: "))
    ```
 
 ---
@@ -123,7 +133,9 @@ A lógica segue três etapas fundamentais na computação: **Entrada $\rightarro
    Através de uma cadeia de `if` / `elif` (que significa *"senão, se"*), o programa compara a variável `opcao`:
    * Se for `'1'`, ele chama a função `adicao(num1, num2)`.
    * Se for `'2'`, chama `subtracao(num1, num2)`.
-   * E assim sucessivamente.
+   * Se for `'3'`, chama `multiplicacao(num1, num2)`.
+   * Se for `'4'`, chama `divisao(num1, num2)`.
+   * Se for `'5'`, chama `porcentagem(num1, num2)`.
 
 2. **Tratamento de Exceção Lógica (Divisão por zero):**
    Dentro da função `divisao`, existe uma regra de negócio essencial: computadores não conseguem dividir por zero (isso geraria um erro crítico e travaria o programa). Por isso, colocamos uma checagem preventiva:
@@ -137,7 +149,10 @@ A lógica segue três etapas fundamentais na computação: **Entrada $\rightarro
    ```python
    print(f"\nResultado: {num1} + {num2} = {resultado}")
    ```
-   Se `num1` for 10 e `num2` for 5 na soma, a tela mostrará claramente: `Resultado: 10.0 + 5.0 = 15.0`.
+   E no caso da porcentagem:
+   ```python
+   print(f"\nResultado: {num1}% de {num2} = {resultado}")
+   ```
 
 ---
 
@@ -148,56 +163,57 @@ calculadora-python/
 │
 ├── calculadora.py      # Código-fonte principal da aplicação
 └── README.md           # Documentação do projeto
-
 ```
 
 ## ⚙️ Requisitos e Instalação
 
 ### Pré-requisitos
-Para executar o projeto, você precisará ter instalado em sua máquina:
-Python 3.8+ instalado.
-Git (opcional, para clonar o repositório).
-Atenção (Usuários Windows): Durante a instalação do Python, certifique-se de marcar a opção "Add python.exe to PATH".
+- Python 3.8+ instalado.
+- Git (opcional, para clonar o repositório).
+- Atenção (Usuários Windows): Durante a instalação do Python, certifique-se de marcar a opção "Add python.exe to PATH".
+
 ### Instalação Passo a Passo
 1. Clone o repositório (ou baixe os arquivos em formato ZIP):
-code
-Bash
-git clone https://github.com/SEU-USUARIO/NOME-DO-REPOSITORIO.git
+```bash
+git clone https://github.com/opusvix/desafio1-Alura-Imersao-Eng-Software-AI.git
+```
 2. Acesse a pasta do projeto:
-code
-Bash
-cd NOME-DO-REPOSITORIO
+```bash
+cd desafio1-Alura-Imersao-Eng-Software-AI
+```
 3. Verifique se o Python está acessível no terminal:
-code
-Bash
+```bash
 python --version
-(Caso não reconheça, tente usar python3 --version).
+```
+(Caso não reconheça, tente usar `python3 --version`).
 
 ## 🚀 Como Usar
 
-1.Execute o script principal:
+1. Execute o script principal:
 No terminal, dentro da pasta do projeto, digite:
-code
-Bash
+```bash
 python calculadora.py
-(No Linux/Mac, utilize python3 calculadora.py se necessário).
-2. Siga as instruções do terminal:
+```
+(No Linux/Mac, utilize `python3 calculadora.py` se necessário).
 
-- Escolha o número da operação desejada (1 a 4).
+2. Siga as instruções do terminal:
+- Escolha o número da operação desejada (1 a 5).
 - Digite o primeiro número e aperte Enter.
 - Digite o segundo número e aperte Enter.
 - O resultado será exibido imediatamente na tela.
-## Exemplo de Uso:
+
+## Exemplos de Uso:
+
+### Exemplo 1: Adição
 ```
 === CALCULADORA SIMPLES ===
-
 Escolha uma operação:
-
 1 - Adição (+)
 2 - Subtração (-)
 3 - Multiplicação (*)
 4 - Divisão (/)
-Digite o número da operação (1/2/3/4): 1
+5 - Porcentagem (%)
+Digite o número da operação (1/2/3/4/5): 1
 
 Digite o primeiro número: 25
 Digite o segundo número: 10
@@ -205,12 +221,27 @@ Digite o segundo número: 10
 Resultado: 25.0 + 10.0 = 35.0
 ```
 
+### Exemplo 2: Porcentagem
+```
+=== CALCULADORA SIMPLES ===
+Escolha uma operação:
+1 - Adição (+)
+2 - Subtração (-)
+3 - Multiplicação (*)
+4 - Divisão (/)
+5 - Porcentagem (%)
+Digite o número da operação (1/2/3/4/5): 5
+
+Digite o primeiro número: 15
+Digite o segundo número: 200
+
+Resultado: 15.0% de 200.0 = 30.0
+```
+
 ## 👨‍💻 Autor
 
 Desenvolvido por Maurício Barros
 
 Entre em contato ou acompanhe meus estudos:
-
-LinkedIn: https://www.linkedin.com/in/mauriciodasilvabarros/
-
-GitHub: https://github.com/opusvix
+- LinkedIn: https://www.linkedin.com/in/mauriciodasilvabarros/
+- GitHub: https://github.com/opusvix
