@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List | Desafio 3 Google Antigravity</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Cabeçalho -->
+        <header class="app-header">
+            <div class="badge-tag">Alura Imersão Eng. Software & IA</div>
+            <h1>Minha Lista de Tarefas</h1>
+            <p class="subtitle">Criado com Google Antigravity & Flask</p>
+        </header>
+
+        <!-- Formulário para Adicionar Tarefas -->
+        <section class="task-input-section">
+            <form id="task-form">
+                <input 
+                    type="text" 
+                    id="task-input" 
+                    placeholder="O que você precisa fazer hoje?" 
+                    autocomplete="off"
+                    required
+                />
+                <button type="submit" id="add-btn" class="btn-primary">
+                    <span class="btn-icon">+</span> Adicionar
+                </button>
+            </form>
+            <p id="error-message" class="error-msg"></p>
+        </section>
+
+        <!-- Barra de Status e Filtros -->
+        <section class="task-toolbar">
+            <div class="task-stats">
+                <span id="stat-total" class="stat-pill">Total: <strong>0</strong></span>
+                <span id="stat-pending" class="stat-pill pending">Pendentes: <strong>0</strong></span>
+                <span id="stat-completed" class="stat-pill completed">Concluídas: <strong>0</strong></span>
+            </div>
+            <div class="task-filters">
+                <button type="button" class="filter-btn active" data-filter="all">Todas</button>
+                <button type="button" class="filter-btn" data-filter="pending">Pendentes</button>
+                <button type="button" class="filter-btn" data-filter="completed">Concluídas</button>
+            </div>
+        </section>
+
+        <!-- Lista de Tarefas -->
+        <main class="task-list-section">
+            <ul id="task-list" class="task-list">
+                <!-- Tarefas renderizadas dinamicamente via JavaScript -->
+            </ul>
+            <div id="empty-state" class="empty-state hidden">
+                <div class="empty-icon">📝</div>
+                <p>Nenhuma tarefa encontrada.</p>
+                <span>Adicione uma nova tarefa acima para começar!</span>
+            </div>
+        </main>
+
+        <!-- Rodapé explicativo -->
+        <footer class="app-footer">
+            <p>💡 <em>Dica:</em> Clique no círculo para concluir a tarefa ou no botão de lixeira para removê-la.</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

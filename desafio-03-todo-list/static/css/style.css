@@ -1,0 +1,351 @@
+/* Reset e Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+}
+
+/* Container Principal */
+.app-container {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 650px;
+    padding: 32px;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.4);
+}
+
+/* Cabeçalho */
+.app-header {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.badge-tag {
+    display: inline-block;
+    background: rgba(59, 130, 246, 0.15);
+    color: #60a5fa;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+.app-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #f8fafc;
+    letter-spacing: -0.5px;
+    margin-bottom: 6px;
+}
+
+.subtitle {
+    color: #94a3b8;
+    font-size: 0.95rem;
+}
+
+/* Formulário de Adição */
+.task-input-section {
+    margin-bottom: 24px;
+}
+
+#task-form {
+    display: flex;
+    gap: 10px;
+}
+
+#task-input {
+    flex: 1;
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 14px 18px;
+    color: #f8fafc;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+#task-input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+}
+
+#task-input::placeholder {
+    color: #64748b;
+}
+
+.btn-primary {
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 14px 22px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-primary:hover {
+    background: #2563eb;
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.error-msg {
+    color: #f87171;
+    font-size: 0.85rem;
+    margin-top: 6px;
+    min-height: 18px;
+}
+
+/* Barra de Ferramentas / Status e Filtros */
+.task-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #334155;
+}
+
+.task-stats {
+    display: flex;
+    gap: 8px;
+}
+
+.stat-pill {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 12px;
+    background-color: #0f172a;
+    color: #94a3b8;
+    border: 1px solid #334155;
+}
+
+.stat-pill strong {
+    color: #f8fafc;
+}
+
+.stat-pill.pending strong {
+    color: #f59e0b;
+}
+
+.stat-pill.completed strong {
+    color: #10b981;
+}
+
+.task-filters {
+    display: flex;
+    gap: 6px;
+}
+
+.filter-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: #94a3b8;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+    color: #f8fafc;
+    background-color: #334155;
+}
+
+.filter-btn.active {
+    background-color: #334155;
+    color: #60a5fa;
+    border-color: #3b82f6;
+    font-weight: 600;
+}
+
+/* Lista de Tarefas */
+.task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Item da Tarefa: Pendente (Padrão) */
+.task-item {
+    background-color: #0f172a;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    transition: all 0.25s ease;
+}
+
+.task-item:hover {
+    border-color: #475569;
+    background-color: #142036;
+}
+
+.task-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    min-width: 0;
+}
+
+/* Botão de Checkbox Customizado */
+.toggle-btn {
+    background: transparent;
+    border: 2px solid #64748b;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: transparent;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.toggle-btn:hover {
+    border-color: #3b82f6;
+    transform: scale(1.08);
+}
+
+.task-title {
+    font-size: 1rem;
+    color: #f8fafc;
+    word-break: break-word;
+    transition: all 0.2s ease;
+}
+
+/* ========================================================
+   MELHORIA VISUAL: Tarefas Concluídas vs Pendentes
+   ======================================================== */
+.task-item.completed {
+    background-color: rgba(15, 23, 42, 0.6);
+    border-color: rgba(16, 185, 129, 0.2);
+    opacity: 0.85;
+}
+
+.task-item.completed .task-title {
+    text-decoration: line-through;
+    color: #64748b;
+}
+
+.task-item.completed .toggle-btn {
+    background-color: #10b981;
+    border-color: #10b981;
+    color: #ffffff;
+}
+
+.task-status-badge {
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 8px;
+}
+
+.task-item:not(.completed) .task-status-badge {
+    background-color: rgba(245, 158, 11, 0.15);
+    color: #f59e0b;
+    border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.task-item.completed .task-status-badge {
+    background-color: rgba(16, 185, 129, 0.15);
+    color: #10b981;
+    border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+/* Botão de Excluir */
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: #64748b;
+    padding: 6px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    color: #ef4444;
+    background-color: rgba(239, 68, 68, 0.12);
+}
+
+/* Estado Vazio */
+.empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #64748b;
+}
+
+.empty-state.hidden {
+    display: none;
+}
+
+.empty-icon {
+    font-size: 2.8rem;
+    margin-bottom: 12px;
+}
+
+.empty-state p {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #94a3b8;
+    margin-bottom: 4px;
+}
+
+.empty-state span {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+/* Rodapé */
+.app-footer {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #334155;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #64748b;
+}

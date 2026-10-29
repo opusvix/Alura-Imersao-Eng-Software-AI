@@ -1,247 +1,116 @@
-# 🧮 Calculadora Básica em Python
+# 🚀 Imersão Engenharia de Software: Dev na Era da IA | Alura
 
-Uma aplicação simples de terminal desenvolvida em Python para realizar as operações matemáticas fundamentais e cálculo de porcentagem. Projeto ideal para quem está iniciando os estudos em lógica de programação.
+[![Python](https://img.shields.io/badge/Python-3.12-blue.svg)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/Flask-3.1.3-green.svg)](https://flask.palletsprojects.com/)
+[![Google Antigravity](https://img.shields.io/badge/Dev_Environment-Google_Antigravity-4285F4.svg)]()
+[![Status](https://img.shields.io/badge/Status-Concluído-brightgreen.svg)]()
+[![Alura](https://img.shields.io/badge/Alura-Imersão_Eng_Software_&_IA-blueviolet.svg)](https://www.alura.com.br/)
 
----
-
-## 📖 Descrição
-
-Este projeto foi criado com fins pedagógicos para praticar os conceitos fundamentais de Python e atender aos Desafios 1 e 2 da Imersão Engenharia de Software: Dev na Era da IA da @Alura. 
-A aplicação roda diretamente na linha de comando (terminal), interagindo com o usuário através de menus numéricos para coletar entradas, realizar o cálculo desejado e exibir o resultado formatado na tela.
-
----
-
-## 🔍 Visão Geral
-
-A calculadora aplica na prática conceitos fundamentais da programação:
-
-- **Modularização com Funções (`def`):** Separação de responsabilidades criando uma função exclusiva para cada operação aritmética (adição, subtração, multiplicação, divisão e porcentagem).
-- **Entrada e Conversão de Dados (`input` / `float`):** Coleta de parâmetros via teclado e conversão de strings para tipos numéricos com ponto flutuante.
-- **Estruturas Condicionais (`if` / `elif` / `else`):** Controle de fluxo para validação das escolhas do menu e tratamento de regras de negócio (como impedir a divisão por zero).
-- **Interpolação de Strings (f-strings):** Apresentação clara e elegante dos dados de saída no terminal.
-  
-  Abaixo está o código completo da calculadora, estruturado de forma simples, legível e comentado linha por linha. 
+Repositório central reunindo os projetos e desafios práticos desenvolvidos durante a **Imersão Engenharia de Software da Alura**. Cada desafio explora uma etapa da formação de um desenvolvedor na era da inteligência artificial: desde lógica fundamental e refatoração com IA até a criação de aplicações web completas com testes automatizados.
 
 ---
 
-### Código da Calculadora em Python
+## 🧭 Sumário dos Desafios
 
-```python
-# --- 1. DEFINIÇÃO DAS FUNÇÕES (Operações Matemáticas) ---
-
-def adicao(a, b):
-    return a + b
-
-def subtracao(a, b):
-    return a - b
-
-def multiplicacao(a, b):
-    return a * b
-
-def divisao(a, b):
-    # Verificação para evitar erro de divisão por zero
-    if b == 0:
-        return "Erro: não é possível dividir por zero!"
-    return a / b
-
-def porcentagem(a, b):
-    # Calcula a porcentagem de 'a' sobre 'b' (a% de b)
-    return (a * b) / 100
-
-
-# --- 2. MENU E ENTRADA DE DADOS ---
-
-print("=== CALCULADORA SIMPLES ===")
-print("Escolha uma operação:")
-print("1 - Adição (+)")
-print("2 - Subtração (-)")
-print("3 - Multiplicação (*)")
-print("4 - Divisão (/)")
-print("5 - Porcentagem (%)")
-
-# O usuário digita a opção desejada
-opcao = input("Digite o número da operação (1/2/3/4/5): ")
-
-# --- 3. PROCESSAMENTO E LÓGICA CONDICIONAL ---
-
-# Verificamos se a opção digitada é válida antes de pedir os números
-if opcao in ['1', '2', '3', '4', '5']:
-    # Recebemos os números e convertemos para float (números com casas decimais)
-    num1 = float(input("Digite o primeiro número: "))
-    num2 = float(input("Digite o segundo número: "))
-
-    # Decidimos qual operação executar com base na escolha
-    if opcao == '1':
-        resultado = adicao(num1, num2)
-        print(f"\nResultado: {num1} + {num2} = {resultado}")
-
-    elif opcao == '2':
-        resultado = subtracao(num1, num2)
-        print(f"\nResultado: {num1} - {num2} = {resultado}")
-
-    elif opcao == '3':
-        resultado = multiplicacao(num1, num2)
-        print(f"\nResultado: {num1} * {num2} = {resultado}")
-
-    elif opcao == '4':
-        resultado = divisao(num1, num2)
-        print(f"\nResultado: {num1} / {num2} = {resultado}")
-
-    elif opcao == '5':
-        resultado = porcentagem(num1, num2)
-        print(f"\nResultado: {num1}% de {num2} = {resultado}")
-
-else:
-    # Caso o usuário digite algo diferente de 1 a 5
-    print("\nOpção inválida! Por favor, escolha um número de 1 a 5.")
-```
+| Desafio | Título | Foco / Tecnologias | Diretório |
+| :---: | :--- | :--- | :---: |
+| **01** | **Calculadora Básica em Python** | Lógica de programação, funções modulares (`def`), controle de fluxo (`if/elif/else`), tratamento de divisão por zero. | [`desafio-01-calculadora-basica/`](./desafio-01-calculadora-basica/) |
+| **02** | **Evolução da Calculadora com IA** | Engenharia de prompt, iteração e refatoração de código com IA, implementação do cálculo de porcentagem (`%`). | [`desafio-02-calculadora-porcentagem/`](./desafio-02-calculadora-porcentagem/) |
+| **03** | **Lista de Tarefas (To-Do List)** | Desenvolvimento de software com **Google Antigravity**, backend Flask, API RESTful, interface web moderna, feedback visual e **9 testes automatizados**. | [`desafio-03-todo-list/`](./desafio-03-todo-list/) |
 
 ---
 
-### Explicações detalhadas
+## 📁 Estrutura do Repositório
 
-#### 1. Quais são os principais componentes do código gerado?
-
-* **Funções (`def`)**: Pequenos blocos de código reaproveitáveis criados com a palavra `def`. Em vez de misturar a matemática no meio do programa, criamos uma função para cada operação (`adicao`, `subtracao`, `multiplicacao`, `divisao`, `porcentagem`). Elas recebem dois valores de entrada (parâmetros `a` e `b`) e devolvem o resultado usando a palavra `return`.
-* **Variáveis**: Espaços na memória do computador usados para guardar dados temporariamente. No código, usamos variáveis como `opcao`, `num1`, `num2` e `resultado`.
-* **Entrada (`input()`)**: Função nativa do Python que pausa a execução e espera o usuário digitar algo pelo teclado.
-* **Conversão de Tipos (`float()`):** Por padrão, tudo o que vem do `input()` é texto (*string*). O `float()` converte esse texto em um número real (com decimais), permitindo fazer contas matemáticas.
-* **Estruturas Condicionais (`if`, `elif`, `else`)**: São os desvios de caminho. O programa avalia se uma condição é verdadeira ou falsa para decidir qual bloco de código deve executar.
-* **Saída (`print()` e f-strings)**: A função `print()` exibe mensagens no terminal. O formato `f"Texto {variavel}"` (f-string) permite misturar texto e valores de variáveis de maneira simples.
-
----
-
-#### 2. Como a aplicação recebe os números e identifica a operação escolhida?
-
-1. **Identificando a operação:** 
-   O programa primeiro usa `opcao = input(...)` para capturar a escolha do usuário como texto (`'1'`, `'2'`, `'3'`, `'4'` ou `'5'`). 
-2. **Validando a escolha:** 
-   A linha `if opcao in ['1', '2', '3', '4', '5']:` checa se o que foi digitado pertence à lista de opções aceitas. Se o usuário digitar "abc" ou "9", o programa pula direto para o `else` final avisando que a opção é inválida.
-3. **Recebendo os números:** 
-   Se a opção for válida, o programa solicita os dois números com `input()` e imediatamente os envolve na função `float()`, transformando a entrada em número calculável:
-   ```python
-   num1 = float(input("Digite o primeiro número: "))
-   num2 = float(input("Digite o segundo número: "))
-   ```
-
----
-#### 3. Como a lógica de programação é utilizada para realizar os cálculos e apresentar os resultados?
-
-A lógica segue três etapas fundamentais na computação: **Entrada $\rightarrow$ Processamento $\rightarrow$ Saída**.
-
-1. **Roteamento (Decisão):**
-   Através de uma cadeia de `if` / `elif` (que significa *"senão, se"*), o programa compara a variável `opcao`:
-   * Se for `'1'`, ele chama a função `adicao(num1, num2)`.
-   * Se for `'2'`, chama `subtracao(num1, num2)`.
-   * Se for `'3'`, chama `multiplicacao(num1, num2)`.
-   * Se for `'4'`, chama `divisao(num1, num2)`.
-   * Se for `'5'`, chama `porcentagem(num1, num2)`.
-
-2. **Tratamento de Exceção Lógica (Divisão por zero):**
-   Dentro da função `divisao`, existe uma regra de negócio essencial: computadores não conseguem dividir por zero (isso geraria um erro crítico e travaria o programa). Por isso, colocamos uma checagem preventiva:
-   ```python
-   if b == 0:
-       return "Erro: não é possível dividir por zero!"
-   ```
-
-3. **Apresentação:**
-   O valor retornado pela função chamada é armazenado na variável `resultado`. Em seguida, a f-string formata uma mensagem amigável mostrando a conta inteira ao usuário:
-   ```python
-   print(f"\nResultado: {num1} + {num2} = {resultado}")
-   ```
-   E no caso da porcentagem:
-   ```python
-   print(f"\nResultado: {num1}% de {num2} = {resultado}")
-   ```
-
----
-
-## 📁 Estrutura do Projeto
+O repositório foi organizado como um *monorepo* modular, permitindo navegar e executar cada desafio de maneira independente:
 
 ```text
-calculadora-python/
+desafio1-Alura-Imersao-Eng-Software-AI/
 │
-├── calculadora.py      # Código-fonte principal da aplicação
-└── README.md           # Documentação do projeto
+├── README.md                                  # Hub central de documentação da Imersão
+├── .gitignore                                 # Arquivos e diretórios ignorados pelo Git
+│
+├── desafio-01-calculadora-basica/             # 🧮 Desafio 1
+│   ├── calculadora.py                         # Código com as 4 operações aritméticas básicas
+│   └── README.md                              # Documentação e instruções de execução
+│
+├── desafio-02-calculadora-porcentagem/        # 📊 Desafio 2
+│   ├── calculadora.py                         # Código refatorado com operação de porcentagem (%)
+│   └── README.md                              # Documentação e explicações dos prompts utilizados
+│
+└── desafio-03-todo-list/                      # 📝 Desafio 3
+    ├── app.py                                 # Servidor Flask e API RESTful (rotas GET, POST, PATCH, DELETE)
+    ├── requirements.txt                       # Dependências do projeto (Flask)
+    ├── README.md                              # Documentação técnica detalhada do To-Do List
+    ├── templates/
+    │   └── index.html                         # Interface visual semântica
+    ├── static/
+    │   ├── css/style.css                      # Estilização com tema escuro e diferenciação visual
+    │   └── js/app.js                          # Lógica de consumo da API, filtros e manipulação do DOM
+    └── tests/
+        └── test_app.py                        # 9 testes automatizados com unittest
 ```
 
-## ⚙️ Requisitos e Instalação
+---
 
-### Pré-requisitos
-- Python 3.8+ instalado.
-- Git (opcional, para clonar o repositório).
-- Atenção (Usuários Windows): Durante a instalação do Python, certifique-se de marcar a opção "Add python.exe to PATH".
+## ⚡ Como Executar os Desafios
 
-### Instalação Passo a Passo
-1. Clone o repositório (ou baixe os arquivos em formato ZIP):
+### 1. Clonar o Repositório
 ```bash
 git clone https://github.com/opusvix/desafio1-Alura-Imersao-Eng-Software-AI.git
-```
-2. Acesse a pasta do projeto:
-```bash
 cd desafio1-Alura-Imersao-Eng-Software-AI
 ```
-3. Verifique se o Python está acessível no terminal:
-```bash
-python --version
-```
-(Caso não reconheça, tente usar `python3 --version`).
 
-## 🚀 Como Usar
+---
 
-1. Execute o script principal:
-No terminal, dentro da pasta do projeto, digite:
+### 🧮 Executando o Desafio 1 (Calculadora Básica)
 ```bash
+cd desafio-01-calculadora-basica
 python calculadora.py
 ```
-(No Linux/Mac, utilize `python3 calculadora.py` se necessário).
+> Permite escolher entre Adição (+), Subtração (-), Multiplicação (*) e Divisão (/) diretamente no terminal.
 
-2. Siga as instruções do terminal:
-- Escolha o número da operação desejada (1 a 5).
-- Digite o primeiro número e aperte Enter.
-- Digite o segundo número e aperte Enter.
-- O resultado será exibido imediatamente na tela.
+---
 
-## Exemplos de Uso:
-
-### Exemplo 1: Adição
+### 📊 Executando o Desafio 2 (Calculadora com Porcentagem)
+```bash
+cd desafio-02-calculadora-porcentagem
+python calculadora.py
 ```
-=== CALCULADORA SIMPLES ===
-Escolha uma operação:
-1 - Adição (+)
-2 - Subtração (-)
-3 - Multiplicação (*)
-4 - Divisão (/)
-5 - Porcentagem (%)
-Digite o número da operação (1/2/3/4/5): 1
+> Inclui a operação 5 para cálculo de porcentagem (`a% de b`), implementada através de refatoração assistida por IA.
 
-Digite o primeiro número: 25
-Digite o segundo número: 10
+---
 
-Resultado: 25.0 + 10.0 = 35.0
+### 📝 Executando o Desafio 3 (To-Do List com Flask)
+```bash
+cd desafio-03-todo-list
+
+# Instalar dependências
+pip install -r requirements.txt
+
+# Iniciar o servidor web
+python app.py
+```
+Acesse no seu navegador: **`http://127.0.0.1:5000`**
+
+#### Executar os testes automatizados do Desafio 3:
+```bash
+python -m unittest discover -s tests -v
 ```
 
-### Exemplo 2: Porcentagem
-```
-=== CALCULADORA SIMPLES ===
-Escolha uma operação:
-1 - Adição (+)
-2 - Subtração (-)
-3 - Multiplicação (*)
-4 - Divisão (/)
-5 - Porcentagem (%)
-Digite o número da operação (1/2/3/4/5): 5
+---
 
-Digite o primeiro número: 15
-Digite o segundo número: 200
+## 🧠 Aprendizados e Destaques
 
-Resultado: 15.0% de 200.0 = 30.0
-```
+1. **Lógica e Fundamentos (Desafio 1):** Domínio de tipos de dados, modularização em funções e tratamento preventivo de falhas lógicas (*exceptions*).
+2. **Engenharia de Prompt e Colaboração com IA (Desafio 2):** Compreensão de como guiar modelos de linguagem para ler código existente, respeitar convenções e adicionar novas *features* sem quebrar o ecossistema.
+3. **Engenharia de Software de Ponta a Ponta (Desafio 3):** Uso do **Google Antigravity** para acelerar a concepção e implementação de uma aplicação web completa (Full Stack), refatoração de interface (UX/UI para tarefas concluídas) e validação através de Testes de Software.
+
+---
 
 ## 👨‍💻 Autor
 
-Desenvolvido por Maurício Barros
+Desenvolvido por **Maurício Barros**
 
-Entre em contato ou acompanhe meus estudos:
-- LinkedIn: https://www.linkedin.com/in/mauriciodasilvabarros/
-- GitHub: https://github.com/opusvix
+- **LinkedIn:** [linkedin.com/in/mauriciodasilvabarros](https://www.linkedin.com/in/mauriciodasilvabarros/)
+- **GitHub:** [github.com/opusvix](https://github.com/opusvix)
